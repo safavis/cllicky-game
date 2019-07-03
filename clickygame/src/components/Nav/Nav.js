@@ -6,12 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import { purple } from '@material-ui/core/colors';
+import { purple,cyan } from '@material-ui/core/colors/';
 
 const theme = createMuiTheme({
   palette: {
     primary: { main: purple[500] }, // Purple and green play nicely together.
     secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
+    third:{main:cyan[500]}
   },
 });
 
@@ -36,14 +37,12 @@ export default function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static" color="primary" >
         <Toolbar color="primary">
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton> */}
+          
           <Typography variant="h6" className={classes.title} >
             Clicky Game
           </Typography>
-          <Button color="secondary">Lost:{props.items.looseScore}</Button>
-          <Button color="inherit">Won:{props.items.winScore}</Button>
+          <Button color="secondary">Score:{props.items.winScore}</Button>
+          <Button color="third">maximum Record:{props.items.maximumRecord}</Button>
         </Toolbar>
       </AppBar>
       </div>

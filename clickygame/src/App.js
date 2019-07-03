@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
-import Grid from '@material-ui/core/Grid'
 import Nav from './components/Nav'
-
+import Table from './components/Table'
 class App extends Component{
   state={
     winScore:0,
@@ -12,13 +11,7 @@ class App extends Component{
     return(
       <>
       <Nav items={this.state}/>
-      <Grid container>
-        <Grid item xs={4}>one</Grid>
-        <Grid item xs={4}>one</Grid>
-        <Grid item xs={4}>one</Grid>
-
-
-      </Grid>
+      <Table/>
       </>
     )
   }

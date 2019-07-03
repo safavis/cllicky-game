@@ -1,0 +1,10 @@
+.imageStyle{
+    flex:1;
+    height: 75%;
+    width: 75%;
+    margin: 10%;
+}
+.totalTable{
+    width:50%;
+    height: 75%;
+}
