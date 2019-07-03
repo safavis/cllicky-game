@@ -19,17 +19,24 @@ import duck from './assets/image/animals-duck.jpg';
 const address=[goat,cat,dog,dolphin,fox,goose,hamster,kitty,bear,panda,turtle,duck]
 class Table extends Component{
     state={
-        order:[0,1,2,3,4,5,6,7,8,9,10,11]
+        order:[0,1,2,3,4,5,6,7,8,9,10,11],
+        clicked:[false,false,false,false,false,false,false,false,false,false,false,false]
     }
     assess=event=>{
         for (let i=0;i<11;i++)
-        {
+        {   let clickNew=this.state.clicked
+            clickNew[event.target.id]=true
             let newOrder=this.state.order
             let temp=newOrder[i]
+            let clicktmp=clickNew[i]
             let j=Math.floor(Math.random()*11)
             newOrder[i]=newOrder[j]
+            clickNew[i]=clickNew[j]
             newOrder[j]=temp
-            this.setState({order:newOrder})
+            clickNew[j]=clicktmp
+            this.setState({order:newOrder,clicked:clickNew})
+            console.log(clickNew)
+            console.log(newOrder)
         }
     }
     render(){
@@ -42,7 +49,7 @@ class Table extends Component{
                     
                      <Grid item xs={3} onClick={this.assess}>
                      <img src={address[element]} alt={address[element]} className="imageStyle" resizeMode='contain'
-                     boxShadow={2} />
+                     boxShadow={2} id={element} />
                      </Grid>
                     </>
                     )
